@@ -1,0 +1,86 @@
+ <form>
+    <div class="form-group">
+       <input type="text"
+                 name="username"
+                 placeholder="Enter your username"
+                 class="form-control"
+                 [(ngModel)]="username"
+               
+                 (keyup)="Save()"
+                 >{{username}}
+                 </div> 
+</form>  
+ <div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    
+    <table class="table table-bordered" border="1">
+      <tbody *ngIf= "_User">
+        <tr >          
+          <td rowspan="5">
+              <img [src]="_User.avatar_url" class="img-responsive img-circle" height="250px" width="250px">
+          </td>
+        </tr>
+        <tr >
+          <td>
+            Name:
+          </td>
+          <td>
+            {{_User.name}}
+          </td>
+        </tr>
+        <tr >
+          <td>
+          Login:
+          </td>
+          <td>
+          {{_User.login}}
+          </td>
+        </tr>
+        <tr >
+            <td>
+            Email:
+            </td>
+            <td>
+           {{_User.email}}
+            </td>
+          </tr>
+          <tr >
+              <td>
+              Blog:
+              </td>
+              <td>
+              {{_User.blog}}
+              </td>
+            </tr>
+      </tbody>
+    </table>  
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    
+  
+     <table class="table table-bordered table-hover">
+      <label>FOLLOWERS</label>
+      <tbody>
+        <tr *ngFor="let follower of _Follower">
+          <td>
+            <img [src]="follower.avatar_url" class="img-responsive img-circle" height="80px" width="80px"/>   
+          </td>
+          <td>
+              {{follower.login}}
+          </td>
+          <td>
+            {{follower.following_url}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    
+  </div>
+</div>
+
+
